@@ -16,7 +16,9 @@ int main()
 	glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
 
 	//Creating the window with glfw
-	GLFWwindow* window = glfwCreateWindow(WIDTH, HEIGHT, "Hello OpenGL", NULL, NULL); // -> allocated on stack
+	GLFWwindow* window;
+	window = glfwCreateWindow(WIDTH, HEIGHT, "Hello OpenGL", NULL, NULL); // -> allocated on stack
+
 	if (window == NULL)
 	{
 		std::cout << "Window is null. Terminating" << std::endl;
@@ -24,15 +26,17 @@ int main()
 	}
 
 	glfwMakeContextCurrent(window);
+	gladLoadGL();
+	glViewport(0, 0, WIDTH, HEIGHT);
 
-	//Loads all OpenGL func. pointers
-	if (!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress))
+	glClearColor(0.7f, 1.0f, 0.0f, 1.0f);
+	glClear(GL_COLOR_BUFFER_BIT);
+	glfwSwapBuffers(window);
+	
+	while (!glfwWindowShouldClose(window))
 	{
-		std::cout << "Failed to initialize GLAD" << std::endl;
-		return -1;
+		glfwPollEvents();
 	}
-
-	std::cin.get();
 
 	return 0;
 }
