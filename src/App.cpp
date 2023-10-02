@@ -18,7 +18,7 @@ const char* fragmentShaderSource = "#version 330 core\n"
 "out vec4 FragColor;\n"
 "void main()\n"
 "{\n"
-"FragColor = vec4(0.8f,0.3f,0.02f,1.0f)\n"
+"FragColor = vec4(0.0f,0.0f,0.0f,1.0f)\n"
 "}\n\0";
 
 
@@ -71,12 +71,12 @@ int main()
 	glDeleteShader(vertexShader);
 	glDeleteShader(fragmentShader);
 
-	//Create VBO(Vertex Buffer Object) 
+	//Create VAO(Vertex Array Object)
 	GLuint VBO, VAO;
 	glGenVertexArrays(1, &VAO);
 	glBindVertexArray(VAO);
 
-	//Create VAO(Vertex Array Object)
+	//Create VBO(Vertex Buffer Object) 
 	glGenBuffers(1, &VBO);
 	glBindBuffer(GL_ARRAY_BUFFER, VBO);
 	glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
