@@ -138,6 +138,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Dependencies\GLAD\src\glad.c" />
+    <ClCompile Include="Examples\Indices\Example1.cpp" />
     <ClCompile Include="src\App.cpp" />
   </ItemGroup>
   <ItemGroup>
