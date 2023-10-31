@@ -71,11 +71,11 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <IncludePath>$(SolutionDir)\Dependencies\GLFW\include;$(IncludePath);$(SolutionDir)\headers;$(SolutionDir)\Dependencies\GLAD\include</IncludePath>
+    <IncludePath>$(SolutionDir)\Dependencies\GLFW\include;$(IncludePath);$(SolutionDir)\Include;$(SolutionDir)\Dependencies\GLAD\include</IncludePath>
     <LibraryPath>$(SolutionDir)\Dependencies\GLFW\libs;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <IncludePath>$(SolutionDir)\Dependencies\GLFW\include;$(IncludePath);$(SolutionDir)\headers;$(SolutionDir)\Dependencies\GLAD\include</IncludePath>
+    <IncludePath>$(SolutionDir)\Dependencies\GLFW\include;$(IncludePath);$(SolutionDir)\Include;$(SolutionDir)\Dependencies\GLAD\include</IncludePath>
     <LibraryPath>$(SolutionDir)\Dependencies\GLFW\libs;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
@@ -141,9 +141,9 @@
     <ClCompile Include="src\App.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="headers\Constants.h" />
-    <ClInclude Include="headers\FragmentShader.h" />
-    <ClInclude Include="headers\VertexShader.h" />
+    <ClInclude Include="Include\Constants.h" />
+    <ClInclude Include="Include\FragmentShader.h" />
+    <ClInclude Include="Include\VertexShader.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

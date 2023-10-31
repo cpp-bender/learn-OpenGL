@@ -23,13 +23,13 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="headers\VertexShader.h">
+    <ClInclude Include="Include\VertexShader.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="headers\Constants.h">
+    <ClInclude Include="Include\Constants.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="headers\FragmentShader.h">
+    <ClInclude Include="Include\FragmentShader.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
