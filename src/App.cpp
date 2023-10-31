@@ -1,26 +1,9 @@
 #include <glad.h>
 #include <glfw3.h>
 #include <iostream>
-
-const unsigned int WIDTH = 500;
-const unsigned int HEIGHT = 500;
-
-//Vertex shader source code
-const char* vertexShaderSource = "#version 330 core\n"
-"layout (location = 0) in vec3 aPos;\n"
-"void main()\n"
-"{\n"
-"gl_Position = vec4(aPos.x,aPos.y,aPos.z,1.0f\n"
-"}\0";
-
-//Fragment shader source code
-const char* fragmentShaderSource = "#version 330 core\n"
-"out vec4 FragColor;\n"
-"void main()\n"
-"{\n"
-"FragColor = vec4(0.0f,0.0f,0.0f,1.0f)\n"
-"}\n\0";
-
+#include <FragmentShader.h>
+#include <VertexShader.h>
+#include <Constants.h>
 
 int main()
 {
@@ -86,7 +69,6 @@ int main()
 
 	glBindBuffer(GL_ARRAY_BUFFER, 0);
 	glBindVertexArray(0);
-
 
 	while (!glfwWindowShouldClose(window))
 	{

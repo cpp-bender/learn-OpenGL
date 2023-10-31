@@ -71,11 +71,11 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <IncludePath>$(SolutionDir)\Dependencies\GLFW\include;$(IncludePath);$(SolutionDir)\Dependencies\GLAD\include;$(IncludePath)</IncludePath>
+    <IncludePath>$(SolutionDir)\Dependencies\GLFW\include;$(IncludePath);$(SolutionDir)\headers;$(SolutionDir)\Dependencies\GLAD\include</IncludePath>
     <LibraryPath>$(SolutionDir)\Dependencies\GLFW\libs;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <IncludePath>$(SolutionDir)\Dependencies\GLFW\include;$(IncludePath);$(SolutionDir)\Dependencies\GLAD\include;$(IncludePath)</IncludePath>
+    <IncludePath>$(SolutionDir)\Dependencies\GLFW\include;$(IncludePath);$(SolutionDir)\headers;$(SolutionDir)\Dependencies\GLAD\include</IncludePath>
     <LibraryPath>$(SolutionDir)\Dependencies\GLFW\libs;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
@@ -138,6 +138,12 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Dependencies\GLAD\src\glad.c" />
+    <ClCompile Include="src\App.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="headers\Constants.h" />
+    <ClInclude Include="headers\FragmentShader.h" />
+    <ClInclude Include="headers\VertexShader.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
