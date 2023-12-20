@@ -1,12 +1,14 @@
 #include <glad.h>
 #include <glfw3.h>
 #include <iostream>
+#include "WindowOptions.h"
+#include "ShaderClass.h"
+#include "VAO.h"
+#include "VBO.h"
+#include "EBO.h"
 
 int main()
 {
-	const unsigned int WIDTH = 500;
-	const unsigned int HEIGHT = 500;
-
 	//Init GLFW
 	glfwInit();
 
@@ -45,28 +47,20 @@ int main()
 		5 , 4 ,1
 	};
 
+	Shader shader("default.vert", "default.frag");
 
-	//Create VAO(Vertex Array Object)
-	GLuint VBO, VAO, EBO;
-	glGenVertexArrays(1, &VAO);
-	glBindVertexArray(VAO);
+	VAO vao1;
+	vao1.Bind();
+	
+	VBO vbo1(vertices, sizeof(vertices));
 
-	//Create VBO(Vertex Buffer Object) 
-	glGenBuffers(1, &VBO);
-	glBindBuffer(GL_ARRAY_BUFFER, VBO);
-	glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
+	EBO ebo1(indices, sizeof(indices));
 
-	//Create EBO (Element Buffer Object)
-	glGenBuffers(1, &EBO);
-	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, EBO);
-	glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(indices), indices, GL_STATIC_DRAW);
+	vao1.LinkVBO(vbo1, 0);
+	vao1.UnBind();
+	vbo1.UnBind();
+	ebo1.UnBind();
 
-	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(GLfloat), (void*)0);
-	glEnableVertexAttribArray(0);
-
-	glBindBuffer(GL_ARRAY_BUFFER, 0);
-	glBindVertexArray(0);
-	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
 
 	while (!glfwWindowShouldClose(window))
 	{
@@ -74,8 +68,8 @@ int main()
 		glClearColor(0.7f, 1.0f, 0.0f, 1.0f);
 		glClear(GL_COLOR_BUFFER_BIT);
 
-		glBindVertexArray(VAO);
-		//glDrawArrays(GL_TRIANGLES, 0, 3);
+		shader.Activate();
+		vao1.Bind();
 		glDrawElements(GL_TRIANGLES, 9, GL_UNSIGNED_INT, 0);
 
 		//Swap front and back buffers
@@ -85,8 +79,8 @@ int main()
 		glfwPollEvents();
 	}
 
-	//Clean VAO, VBO and shaderProgram
-	glDeleteVertexArrays(1, &VAO);
-	glDeleteBuffers(1, &VBO);
-	glDeleteBuffers(1, &EBO);
+	vao1.Delete();
+	vbo1.Delete();
+	ebo1.Delete();
+	shader.Delete();
 }

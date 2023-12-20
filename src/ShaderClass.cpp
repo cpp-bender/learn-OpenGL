@@ -1,3 +1,4 @@
+#include <glad.h>
 #include "ShaderClass.h"
 
 std::string get_file_contents(const char* filename)
@@ -16,7 +17,7 @@ std::string get_file_contents(const char* filename)
 	throw(errno);
 }
 
-Shader::Shader(const char* vertexFile, const char* fragmentfile)
+Shader::Shader(const char* vertexFile, const char* fragmentFile)
 {
 	std::string vertexCode = get_file_contents(vertexFile);
 	std::string fragCode = get_file_contents(fragmentFile);
@@ -31,7 +32,7 @@ Shader::Shader(const char* vertexFile, const char* fragmentfile)
 
 	//Create fragment shader
 	GLuint fragmentShader = glCreateShader(GL_FRAGMENT_SHADER);
-	glShaderSource(fragmentShader, 1, &fragmentSource, NULL);
+	glShaderSource(fragmentShader, 1, &fragSource, NULL);
 	glCompileShader(fragmentShader);
 
 	//Create shader program

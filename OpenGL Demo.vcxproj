@@ -142,11 +142,20 @@
     <ClCompile Include="Dependencies\GLAD\src\glad.c" />
     <ClCompile Include="Include\ShaderClass.h" />
     <ClCompile Include="src\App.cpp" />
+    <ClCompile Include="src\EBO.cpp" />
     <ClCompile Include="src\ShaderClass.cpp" />
+    <ClCompile Include="src\VAO.cpp" />
+    <ClCompile Include="src\VBO.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Shaders\default.frag" />
     <None Include="Shaders\default.vert" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Include\EBO.h" />
+    <ClInclude Include="Include\VAO.h" />
+    <ClInclude Include="Include\VBO.h" />
+    <ClInclude Include="Include\WindowOptions.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
