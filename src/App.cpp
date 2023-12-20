@@ -1,12 +1,12 @@
 #include <glad.h>
 #include <glfw3.h>
 #include <iostream>
-#include <FragmentShader.h>
-#include <VertexShader.h>
-#include <Constants.h>
 
 int main()
 {
+	const unsigned int WIDTH = 500;
+	const unsigned int HEIGHT = 500;
+
 	//Init GLFW
 	glfwInit();
 
@@ -45,27 +45,6 @@ int main()
 		5 , 4 ,1
 	};
 
-	//Create vertex shader
-	GLuint vertexShader = glCreateShader(GL_VERTEX_SHADER);
-	glShaderSource(vertexShader, 1, &vertexShaderSource, NULL);
-	glCompileShader(vertexShader);
-
-	//Create fragment shader
-	GLuint fragmentShader = glCreateShader(GL_FRAGMENT_SHADER);
-	glShaderSource(fragmentShader, 1, &fragmentShaderSource, NULL);
-	glCompileShader(fragmentShader);
-
-	//Create shader program
-	GLuint shaderProgram = glCreateProgram();
-	glAttachShader(shaderProgram, vertexShader);
-	glAttachShader(shaderProgram, fragmentShader);
-
-	//Link shader program
-	glLinkProgram(shaderProgram);
-
-	//Delete shader sources
-	glDeleteShader(vertexShader);
-	glDeleteShader(fragmentShader);
 
 	//Create VAO(Vertex Array Object)
 	GLuint VBO, VAO, EBO;
@@ -95,7 +74,6 @@ int main()
 		glClearColor(0.7f, 1.0f, 0.0f, 1.0f);
 		glClear(GL_COLOR_BUFFER_BIT);
 
-		glUseProgram(shaderProgram);
 		glBindVertexArray(VAO);
 		//glDrawArrays(GL_TRIANGLES, 0, 3);
 		glDrawElements(GL_TRIANGLES, 9, GL_UNSIGNED_INT, 0);
@@ -111,5 +89,4 @@ int main()
 	glDeleteVertexArrays(1, &VAO);
 	glDeleteBuffers(1, &VBO);
 	glDeleteBuffers(1, &EBO);
-	glDeleteProgram(shaderProgram);
 }

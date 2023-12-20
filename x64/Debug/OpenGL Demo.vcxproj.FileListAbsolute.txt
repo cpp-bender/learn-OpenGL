@@ -1,1 +1,2 @@
 C:\Users\Ahmet Altioglu\OneDrive\Desktop\Software Engineering\C++\OpenGL Demo\x64\Debug\OpenGL Demo.exe
+C:\Users\Ahmet Altioglu\OneDrive\Desktop\OpenGL\OpenGL Demo\x64\Debug\OpenGL Demo.exe
