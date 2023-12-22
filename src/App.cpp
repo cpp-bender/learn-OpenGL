@@ -1,11 +1,11 @@
 #include <glad.h>
 #include <glfw3.h>
 #include <iostream>
-#include "WindowOptions.h"
-#include "ShaderClass.h"
-#include "VAO.h"
-#include "VBO.h"
-#include "EBO.h"
+#include <WindowOptions.h>
+#include <Shader.h>
+#include <VAO.h>
+#include <VBO.h>
+#include <EBO.h>
 
 int main()
 {
@@ -47,7 +47,7 @@ int main()
 		5 , 4 ,1
 	};
 
-	Shader shader("default.vert", "default.frag");
+	Shader shader;
 
 	VAO vao1;
 	vao1.Bind();
@@ -60,7 +60,6 @@ int main()
 	vao1.UnBind();
 	vbo1.UnBind();
 	ebo1.UnBind();
-
 
 	while (!glfwWindowShouldClose(window))
 	{
@@ -83,4 +82,10 @@ int main()
 	vbo1.Delete();
 	ebo1.Delete();
 	shader.Delete();
+
+	//Destroys window
+	glfwDestroyWindow(window);
+
+	//Terminates window
+	glfwTerminate();
 }

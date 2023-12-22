@@ -71,11 +71,11 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <IncludePath>$(SolutionDir)\Dependencies\GLFW\include;$(IncludePath);$(SolutionDir)\Include;$(SolutionDir)\Dependencies\GLAD\include</IncludePath>
+    <IncludePath>$(SolutionDir)\Dependencies\GLFW\include;$(SolutionDir)\Include;$(SolutionDir)\Dependencies\GLAD\include</IncludePath>
     <LibraryPath>$(SolutionDir)\Dependencies\GLFW\libs;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <IncludePath>$(SolutionDir)\Dependencies\GLFW\include;$(IncludePath);$(SolutionDir)\Include;$(SolutionDir)\Dependencies\GLAD\include</IncludePath>
+    <IncludePath>$(SolutionDir)\Dependencies\GLFW\include;$(SolutionDir)\Include;$(SolutionDir)\Dependencies\GLAD\include</IncludePath>
     <LibraryPath>$(SolutionDir)\Dependencies\GLFW\libs;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
@@ -112,7 +112,8 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>Include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>
+      </AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -128,7 +129,8 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>Include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>
+      </AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -140,22 +142,20 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Dependencies\GLAD\src\glad.c" />
-    <ClCompile Include="Include\ShaderClass.h" />
+    <ClCompile Include="Include\Shader.h" />
     <ClCompile Include="src\App.cpp" />
     <ClCompile Include="src\EBO.cpp" />
-    <ClCompile Include="src\ShaderClass.cpp" />
+    <ClCompile Include="src\Shader.cpp" />
     <ClCompile Include="src\VAO.cpp" />
     <ClCompile Include="src\VBO.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Shaders\default.frag" />
-    <None Include="Shaders\default.vert" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Include\EBO.h" />
     <ClInclude Include="Include\VAO.h" />
     <ClInclude Include="Include\VBO.h" />
     <ClInclude Include="Include\WindowOptions.h" />
+    <ClInclude Include="Include\FragmentShader.h" />
+    <ClInclude Include="Include\VertexShader.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
